@@ -44,6 +44,20 @@
                             
                             </ul>
                         </li>
+
+                        <li class=" {{  Request::routeIs('order.index')  }} ">
+                            <a href="javascript:;"><i class="sidebar-item-icon fa fa-shopping-cart"></i>
+                                <span class="nav-label">Order </span><i class="fa fa-angle-left arrow"></i></a>
+                            <ul class="nav-2-level collapse">
+                                <li>
+                                    <a  class=" {{  Request::routeIs('order.index')  ? 'active' : '' }}" href="{{ route('order.index') }}">Product List</a>
+                                  
+                                </li>
+                            
+                            
+                            </ul>
+                        </li>
+                       
                     
                   
                   

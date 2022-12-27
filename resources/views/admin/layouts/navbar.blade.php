@@ -142,8 +142,8 @@
                            <img src="/users/image/{{Auth::user()->image}}" width="45px"  style="border-radius:50%"/>
                             <span></span>{{ Auth::user()->name }}<i class="fa fa-angle-down m-l-5"></i></a>
                         <ul class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="profile.html"><i class="fa fa-user"></i>Profile</a>
-                            <a class="dropdown-item" href="profile.html"><i class="fa fa-cog"></i>Settings</a> 
+                            <a class="dropdown-item" href="{{ route('profile') }}"><i class="fa fa-user"></i>Profile</a>
+                            {{-- <a class="dropdown-item" href="profile.html"><i class="fa fa-cog"></i>Settings</a>  --}}
                             <a class="dropdown-item" href="javascript:;"><i class="fa fa-support"></i>Support</a>
 
                             <li class="dropdown-divider"></li>  
