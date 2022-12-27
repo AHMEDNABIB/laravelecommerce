@@ -41,6 +41,16 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    protected function profileImagePath()
+    {
+        $path = '/storage/avatars/defaultavatar.png';
+        if(request()->hasFile('profile_image') && request()->file('profile_image')->isValid()) {
+            $path = request()->profile_image->store('avatars');
+        }
+        
+        return $path;
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -53,9 +63,12 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:3', 'confirmed'],
+           
         ]);
     }
 
+   
+     
     /**
      * Create a new user instance after a valid registration.
      *
@@ -63,11 +76,31 @@ class RegisterController extends Controller
      * @return \App\Models\User
      */
     protected function create(array $data)
-    {
-        return User::create([
+    {   
+        
+         if (request()->hasFile('image')) {
+         $file_extention = $data['image']->getClientOriginalExtension();
+         $file_name = time().rand(99,999).'image_profile.'.$file_extention;
+         $file_path = $data['image']->move(public_path().'/users/image',$file_name);
+         }
+        
+        
+        $user= User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+             'image'    => $file_name ,
+
+             
             'password' => Hash::make($data['password']),
         ]);
+
+
+      
+
+        return $user;
+
+
     }
+
+  
 }
