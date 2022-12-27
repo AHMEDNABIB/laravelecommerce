@@ -37,6 +37,18 @@
                                             @endif
                                         </div>
                                     </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Image</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" name="image" type="file" >
+
+                                            <img src="{{url('/image/categories',$category->image)}}" class="mt-2" alt="" srcset="" width="120"></br>
+                                        </div>
+                                        @if ($errors->has('image'))
+                                            <span class="text-danger error-text mt-1">{{ $errors->first('image') }}</span>
+                                        @endif
+                                    </div>
                                     {{--<div class="form-group row">
                                         <label class="col-sm-2 col-form-label"></label>
                                         <div class="col-sm-10">

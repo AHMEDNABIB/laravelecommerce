@@ -27,13 +27,13 @@ class ProductRequestValidation extends FormRequest
     {
         return [
            
-              'name' => "required|max:25|regex:/^[0-9A-Za-z.\s,'-]*$/",
-              'brand' => "required|max:25|regex:/^[0-9A-Za-z.\s,'-]*$/",
-              'description' => "required|regex:/^[0-9A-Za-z.\s,'-]*$/",
-              'qty' =>'required|numeric',
-              'code' => "required|regex:/^[0-9A-Za-z.\s,'-]*$/",
-              'price' =>'required|numeric',
-              'image'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            //   'name' => "required|max:25|regex:/^[0-9A-Za-z.\s,'-]*$/",
+            //   'brand' => "required|max:25|regex:/^[0-9A-Za-z.\s,'-]*$/",
+            //   'description' => "required|regex:/^[0-9A-Za-z.\s,'-]*$/",
+            //   'qty' =>'required|numeric',
+            //   'code' => "required|regex:/^[0-9A-Za-z.\s,'-]*$/",
+            //   'price' =>'required|numeric',
+            //   'image'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
                             
 
 
