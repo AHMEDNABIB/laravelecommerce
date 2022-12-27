@@ -46,4 +46,17 @@ class IndexController extends Controller
 
           return view('frontend.product.product_details',compact('product','color','product_color','product_size','relatedProduct'));
     }
+
+
+    public function CatWiseProduct(Request $request,$id,$slug){
+      $products = Product::where('status',1)->where('cat_id',$id)->orderBy('id','DESC')->get();
+      // dd($products);
+      $categories = Category::orderBy('name','ASC')->get();
+      $breadcat = Category::where('id',$id)->first();
+      $newProduct = Product::orderBy('id','DESC')->limit(3)->get();
+
+      return view('frontend.product.category_view',compact('products','categories',
+    'breadcat','newProduct'));
+
+     }//
 }
