@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Products\CategoryController;
+use App\Http\Controllers\Products\ProductController;
+use App\Http\Controllers\Products\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,9 +22,13 @@ Route::get('/', function () {
 });
 
 /*======================route space for hashmi============================*/
-Route::group(['prefix' => 'Products'], function() {
-    Route::resource('category', CategoryController::class);
+Route::group(['prefix' => 'admin'], function() {
+    Route::resource('category', CategoryController::class, ['names' => 'category']);
+    Route::resource('product', ProductController::class, ['names' => 'product']);
+    Route::resource('order', OrderController::class, ['names' => 'order']);
 });
+
+
 
 
 
@@ -37,7 +43,7 @@ Route::group(['prefix' => 'Products'], function() {
 
 
 /*======================route space for nabib============================*/
-Route::resource('category', CategoryController::class);
+// Route::resource('category', CategoryController::class);
 
 Route::get('/', function(){
     // return view('frontend.layouts.app');
@@ -49,9 +55,9 @@ Route::get('/cart', function(){
     return view('frontend.cart');
 });
 
-Route::get('/product', function(){
-    return view('frontend.product.allproduct');
-});
+// Route::get('/product', function(){
+//     return view('frontend.product.allproduct');
+// });
 
 Route::get('/productdetails', function(){
     return view('frontend.product.productdetails');
@@ -62,20 +68,11 @@ Route::get('/checkout', function(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+Route::get('profile', [App\Http\Controllers\HomeController::class, 'show'])->name('profile');
+Route::put('profile/update/{id}', [App\Http\Controllers\HomeController::class, 'update'])->name('profile.update');
 
 
 

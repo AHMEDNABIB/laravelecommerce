@@ -14,4 +14,7 @@ class Category extends Model
     protected $attributes = [
         'status' => 1,
     ];
+    
+     
+    
 }

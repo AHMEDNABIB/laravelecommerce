@@ -17,6 +17,16 @@ class categoryRepository implements categoryRepositoryInterface{
         }
     }
 
+    public function getCategoryDropdown()
+	{
+		
+        return Category::latest()->where('status',1)->get();
+
+		
+    }
+
+		
+
     public function create(array $attributes)
     {
         Category::create($attributes);

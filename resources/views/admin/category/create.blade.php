@@ -1,13 +1,13 @@
 @extends('admin.layouts.app')
 
 @section('content')
-            <div class="page-heading">
-                <h1 class="page-title">Category</h1>
+            <div class="page-heading ml-5 mt-5">
+                <h1 class="page-title ml-3">Category</h1>
             </div>
 
             <div class="page-content fade-in-up">
-                <div class="row">
-                    <div class="col-md-10">
+                <div class="row ml-5" >
+                    <div class="col-md-8">
                         <div class="ibox">
                             <div class="ibox-head">
                                 <div class="ibox-title">Create Category</div>
@@ -28,7 +28,7 @@
                                     @method('POST')
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Name</label>
-                                        <div class="col-sm-10">
+                                        <div class="col-sm-8">
                                             <input class="form-control" name="name" type="text">
                                         </div>
                                         @if ($errors->has('name'))

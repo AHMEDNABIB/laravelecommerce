@@ -1,10 +1,10 @@
     <header class="header">
             <div class="page-brand">
                 <a class="link" href="index.html">
-                    <span class="brand">Admin
-                        <span class="brand-tip">CAST</span>
+                    <span class="brand">PIPPIN
+                        <span class="brand-tip">ECOMMRCE</span>
                     </span>
-                    <span class="brand-mini">AC</span>
+                    <span class="brand-mini">EC</span>
                 </a>
             </div>
             <div class="flexbox flex-1">
@@ -25,7 +25,7 @@
                 <!-- END TOP-LEFT TOOLBAR-->
                 <!-- START TOP-RIGHT TOOLBAR-->
                 <ul class="nav navbar-toolbar">
-                    <li class="dropdown dropdown-inbox">
+                    {{-- <li class="dropdown dropdown-inbox">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope-o"></i>
                             <span class="badge badge-primary envelope-badge">9</span>
                         </a>
@@ -52,7 +52,7 @@
                                     <a class="list-group-item">
                                         <div class="media">
                                             <div class="media-img">
-                                                <img src="./assets/img/users/u2.jpg" />
+                                                <img src="{{ asset('./assets/img/users/u2.jpg')}}" />
                                             </div>
                                             <div class="media-body">
                                                 <div class="font-strong"></div>Becky Brooks<small class="text-muted float-right">18 mins</small>
@@ -136,17 +136,34 @@
                                 </div>
                             </li>
                         </ul>
-                    </li>
+                    </li> --}}
                     <li class="dropdown dropdown-user">
                         <a class="nav-link dropdown-toggle link" data-toggle="dropdown">
-                            <img src="./assets/img/admin-avatar.png" />
-                            <span></span>Admin<i class="fa fa-angle-down m-l-5"></i></a>
+                           <img src="/users/image/{{Auth::user()->image}}" width="45px"  style="border-radius:50%"/>
+                            <span></span>{{ Auth::user()->name }}<i class="fa fa-angle-down m-l-5"></i></a>
                         <ul class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="profile.html"><i class="fa fa-user"></i>Profile</a>
-                            <a class="dropdown-item" href="profile.html"><i class="fa fa-cog"></i>Settings</a>
+                            <a class="dropdown-item" href="{{ route('profile') }}"><i class="fa fa-user"></i>Profile</a>
+                            {{-- <a class="dropdown-item" href="profile.html"><i class="fa fa-cog"></i>Settings</a>  --}}
                             <a class="dropdown-item" href="javascript:;"><i class="fa fa-support"></i>Support</a>
-                            <li class="dropdown-divider"></li>
-                            <a class="dropdown-item" href="login.html"><i class="fa fa-power-off"></i>Logout</a>
+
+                            <li class="dropdown-divider"></li>  
+                          
+                             <div class="" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                       <i class="fa fa-power-off"></i>Logout
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+
+                          
+
+
+                            
                         </ul>
                     </li>
                 </ul>

@@ -11,6 +11,8 @@ use App\Repositories\Interfaces\categoryRepositoryInterface;
 class CategoryController extends Controller
 {
     private $categoryRepository;
+
+    
     public function __construct(categoryRepositoryInterface $categoryRepository)
     {
         $this->categoryRepository= $categoryRepository;
@@ -28,9 +30,12 @@ class CategoryController extends Controller
     }
 
     public function store(CategoryRequestValidation $request)
-    {
+
+    {   
+        // dd($request->all());
         $this->categoryRepository->create($request->all());
         return redirect()->back()->with('success', 'Category  created successfully.');
+        
     }
 
     public function show(Category $category)
