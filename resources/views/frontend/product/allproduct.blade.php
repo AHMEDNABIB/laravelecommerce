@@ -8,7 +8,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h4 class="mb-4">Our Products</h4>
+                    <h4 class="mb-4"> All Products</h4>
                 </div>
                 <div class="col-md-3">
                     <div class="product-card">
