@@ -16,13 +16,23 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('cat_id');
-            $table->string('name');
-            $table->string('brand');
-            $table->string('description');
-            $table->string('image');
-            $table->bigInteger('qty');
+             $table->string('name');
+            $table->string('slug');
             $table->string('code');
-            $table->float('price');
+            $table->string('qty');
+            $table->string('tags')->nullable();
+            $table->string('size')->nullable();
+            $table->string('color')->nullable();
+            $table->string('selling_price');
+            $table->string('discount_price')->nullable();
+            $table->text('short_descp');
+            $table->text('long_descp');
+            $table->string('image');
+            
+            $table->integer('hot_deals')->nullable();
+            $table->integer('featured')->nullable();
+            $table->integer('special_offer')->nullable();
+            $table->integer('special_deals')->nullable();
             $table->boolean('status');
             $table->timestamps();
         });

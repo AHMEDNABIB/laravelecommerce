@@ -17,20 +17,31 @@
                   
                     <li class="heading">FEATURES</li>
                       
-                  
                     
-                        <li class=" {{  Request::routeIs('category.index') || Request::routeIs('category.create')  ? 'active' : '' }} ">
+                      <li class=" {{  Request::routeIs('category.index') || Request::routeIs('category.create')  ? 'active' : '' }} ">
                             <a href="javascript:;"><i class="sidebar-item-icon fa fa-columns"></i>
                                 <span class="nav-label">Category </span><i class="fa fa-angle-left arrow"></i></a>
                             <ul class="nav-2-level collapse">
-                                <li>
-                                    <a class=" {{  Request::routeIs('category.index')  ? 'active' : '' }}" href="{{ route('category.index') }}">Category List</a>
+                                
+                                 <li>
+                                     {{-- @can('categoryList',\Illuminate\Support\Facades\Auth::user()) --}}
+                                    <a class=" {{  Request::routeIs('category.index')  ? 'active' : '' }}" href="{{ route('category.index') }}">Category List</a> 
+                                     {{-- @endcan --}}
+                                    
                                     <a  class=" {{  Request::routeIs('category.create')  ? 'active' : '' }}"      href="{{ route('category.create') }}">Create Category</a>
+                                  
                                 </li>
+                        
+                             
+
+                        
                             
                             
                             </ul>
                         </li>
+                 
+                    
+                      
 
                         <li class=" {{  Request::routeIs('product.index') || Request::routeIs('product.create')  ? 'active' : '' }} ">
                             <a href="javascript:;"><i class="sidebar-item-icon fa fa-shopping-cart"></i>
@@ -50,21 +61,51 @@
                                 <span class="nav-label">Order </span><i class="fa fa-angle-left arrow"></i></a>
                             <ul class="nav-2-level collapse">
                                 <li>
-                                    <a  class=" {{  Request::routeIs('order.index')  ? 'active' : '' }}" href="{{ route('order.index') }}">Product List</a>
+                                    <a  class=" {{  Request::routeIs('order.index')  ? 'active' : '' }}" href="{{ route('order.index') }}">Order List</a>
                                   
                                 </li>
                             
                             
                             </ul>
                         </li>
-                       
-                    
-                  
-                  
-                 
-        
-                 
-                 
+
+
+                        
+                        <li class=" {{  Request::routeIs('user.index') || Request::routeIs('user.create')  ? 'active' : '' }} ">
+                            <a href="javascript:;"><i class="sidebar-item-icon fa fa-columns"></i>
+                                <span class="nav-label">User </span><i class="fa fa-angle-left arrow"></i></a>
+                            <ul class="nav-2-level collapse">
+                                <li>
+                                    <a class=" {{  Request::routeIs('user.index')  ? 'active' : '' }}" href="{{ route('user.index') }}">User List</a>
+                                 
+                                      <a  class=" {{  Request::routeIs('user.create')  ? 'active' : '' }}" href="{{ route('user.create') }}">Create User</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class=" {{  Request::routeIs('role.index') || Request::routeIs('role.create')  ? 'active' : '' }} ">
+                            <a href="javascript:;"><i class="sidebar-item-icon fa fa-columns"></i>
+                                <span class="nav-label">Role </span><i class="fa fa-angle-left arrow"></i></a>
+                            <ul class="nav-2-level collapse">
+                                <li>
+                                    <a class=" {{  Request::routeIs('role.index')  ? 'active' : '' }}" href="{{ route('role.index') }}">Role List</a>
+                                 
+                                      <a  class=" {{  Request::routeIs('role.create')  ? 'active' : '' }}" href="{{ route('role.create') }}">Create Role</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class=" {{  Request::routeIs('permission.index') || Request::routeIs('permission.create')  ? 'active' : '' }} ">
+                            <a href="javascript:;"><i class="sidebar-item-icon fa fa-columns"></i>
+                                <span class="nav-label">Permission </span><i class="fa fa-angle-left arrow"></i></a>
+                            <ul class="nav-2-level collapse">
+                                <li>
+                                    <a class=" {{  Request::routeIs('permission.index')  ? 'active' : '' }}" href="{{ route('permission.index') }}">Permission List</a>
+                                 
+                                      <a  class=" {{  Request::routeIs('permission.create')  ? 'active' : '' }}" href="{{ route('permission.create') }}">Create Permission</a>
+                                </li>
+                            </ul>
+                        </li>
                 </ul>
             </div>
         </nav>

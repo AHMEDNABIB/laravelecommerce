@@ -27,6 +27,7 @@
                                 <form action={{ route('product.store')}} method="POST" enctype="multipart/form-data">
                                     @csrf
                                     @method('POST')
+
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Name</label>
                                         <div class="col-sm-8">
@@ -34,6 +35,16 @@
                                         </div>
                                         @if ($errors->has('name'))
                                             <span class="text-danger error-text mt-1">{{ $errors->first('name') }}</span>
+                                        @endif
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Tags</label>
+                                        <div class="col-sm-8">
+                                            <input class="form-control" name="tags" type="text" value="{{old('tags')}}">
+                                        </div>
+                                        @if ($errors->has('tags'))
+                                            <span class="text-danger error-text mt-1">{{ $errors->first('tags') }}</span>
                                         @endif
                                     </div>
                                   
@@ -49,12 +60,35 @@
                                     </div>
 
                                      <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Size</label>
+                                        <div class="col-sm-8">
+                                            <input class="form-control" name="size" type="text"  value="{{old('size')}}">
+                                        </div>
+                                        @if ($errors->has('size'))
+                                            <span class="text-danger error-text mt-1">{{ $errors->first('size') }}</span>
+                                        @endif
+                                    </div>
+
+
+{{-- 
+                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Price</label>
                                         <div class="col-sm-8">
                                             <input class="form-control" name="price" type="text" value="{{old('price')}}">
                                         </div>
                                         @if ($errors->has('price'))
                                             <span class="text-danger error-text mt-1">{{ $errors->first('price') }}</span>
+                                        @endif
+                                    </div> --}}
+
+                                    
+                                     <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Color</label>
+                                        <div class="col-sm-8">
+                                            <input class="form-control" name="color" type="text" value="{{old('color')}}">
+                                        </div>
+                                        @if ($errors->has('color'))
+                                            <span class="text-danger error-text mt-1">{{ $errors->first('color') }}</span>
                                         @endif
                                     </div>
 
@@ -76,6 +110,26 @@
                                         </div>
                                         @if ($errors->has('code'))
                                             <span class="text-danger error-text mt-1">{{ $errors->first('code') }}</span>
+                                        @endif
+                                    </div>
+
+                                     <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label"> Selling Price</label>
+                                        <div class="col-sm-8">
+                                            <input class="form-control" name="selling_price" type="text" value="{{old('selling_price')}}" >
+                                        </div>
+                                        @if ($errors->has('selling_price'))
+                                            <span class="text-danger error-text mt-1">{{ $errors->first('selling_price') }}</span>
+                                        @endif
+                                    </div>
+
+                                     <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label"> Discount Price</label>
+                                        <div class="col-sm-8">
+                                            <input class="form-control" name="discount_price" type="text" value="{{old('discount_price')}}" >
+                                        </div>
+                                        @if ($errors->has('discount_price'))
+                                            <span class="text-danger error-text mt-1">{{ $errors->first('discount_price') }}</span>
                                         @endif
                                     </div>
 
@@ -105,13 +159,65 @@
                                         @endif
                                     </div>
                                     
-                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Description</label>
+                                   
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Hot Deals</label>
                                         <div class="col-sm-8">
-                                              <textarea class="form-control" name="description" rows="4" cols="50" value="{{old('description')}}"></textarea>
+                                            <input class="form-control" name="hot_deals" type="text" value="{{old('hot_deals')}}" >
                                         </div>
-                                        @if ($errors->has('description'))
-                                            <span class="text-danger error-text mt-1">{{ $errors->first('description') }}</span>
+                                        @if ($errors->has('hot_deals'))
+                                            <span class="text-danger error-text mt-1">{{ $errors->first('hot_deals') }}</span>
+                                        @endif
+                                    </div>    
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Featured</label>
+                                        <div class="col-sm-8">
+                                            <input class="form-control"  name="featured" type="text" value="{{old('featured')}}" >
+                                        </div>
+                                        @if ($errors->has('featured'))
+                                            <span class="text-danger error-text mt-1">{{ $errors->first('featured') }}</span>
+                                        @endif
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Special Offer</label>
+                                        <div class="col-sm-8">
+                                            <input class="form-control"  name="special_offer" type="text" value="{{old('special_offer')}}" >
+                                        </div>
+                                        @if ($errors->has('special_offer'))
+                                            <span class="text-danger error-text mt-1">{{ $errors->first('special_offer') }}</span>
+                                        @endif
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Special Deals</label>
+                                        <div class="col-sm-8">
+                                            <input class="form-control"  name="special_deals" type="text" value="{{old('special_deals')}}" >
+                                        </div>
+                                        @if ($errors->has('special_deals'))
+                                            <span class="text-danger error-text mt-1">{{ $errors->first('special_deals') }}</span>
+                                        @endif
+                                    </div>
+
+                                      <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Short Description</label>
+                                        <div class="col-sm-8">
+                                              <textarea class="form-control" name="short_descp" rows="4" cols="50" value="{{old('short_descp')}}"></textarea>
+                                        </div>
+                                        @if ($errors->has('short_descp'))
+                                            <span class="text-danger error-text mt-1">{{ $errors->first('short_descp') }}</span>
+                                        @endif
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Long Description</label>
+                                        <div class="col-sm-8">
+                                            <textarea class="form-control" name="long_descp" rows="4" cols="50" value="{{old('long_descp')}}"></textarea>
+                                        </div>
+                                        @if ($errors->has('long_descp'))
+                                            <span class="text-danger error-text mt-1">{{ $errors->first('long_descp') }}</span>
                                         @endif
                                     </div>
 

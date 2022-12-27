@@ -30,6 +30,7 @@
                                <tr>
                                 <td>No</td>
                                 <td>Name</td>
+                                <td>Image</td>
                                 <th>Actions</th>
                                </tr>
 
@@ -39,6 +40,9 @@
                                         <tr>
                                             <td>{{++$key}}</td>
                                             <td>{{$category->name}}</td>
+                                            <td>
+                                                <img src="{{url('image/categories/',$category->image)}}" alt="Category Image" srcset="" width="80">
+                                            </td>
                                             <td>
                                                 <form action="{{ route('category.destroy',$category->id) }}" method="Post">
                                                     <a href="{{route('category.edit',$category['id'])}}" class="btn btn-default btn-sm"> <i class="fa fa-edit text-success"></i> </a>

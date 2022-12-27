@@ -63,9 +63,11 @@ class ProductController extends Controller
      */
     public function store(ProductRequestValidation $request)
     {
-     
+        //   dd($request->all());
 
             $input = $request->all();
+
+             $input['slug'] = strtolower(str_replace(' ', '-',$request->name));
 
             if ($image = $request->file('image')) {
                 $destinationPath = 'image/products';

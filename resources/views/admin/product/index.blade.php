@@ -27,12 +27,11 @@
                                 <tr>
                                     <td>No</td>
                                     <td>Name</td>
-                                    <td>Brand</td>
-                                    <td>Category</td>
                                     <td>Price</td>
+                                    <th>Discount</th>
+
                                     <td>Quantity</td>
-                                    <td>Code</td>
-                                    <td>Description</td>
+                                    
                                     <td>Image</td>
                                     <th>Actions</th>
                                  
@@ -44,16 +43,12 @@
                                     @foreach($products as $key=>$product)
                                         <tr>
                                             <td>{{++$key}}</td>
-                                            <td>{{$product->name}}</td>
-                                            <td>{{$product->brand}}</td>
-                                            <td>{{ $product->category->name}}
-                                            
-                                                
-                                            </td>
-                                            <td>{{$product->price}}</td>
+                                            <td>{{$product->name}}</td> 
+                                        
+                                            <td>{{$product->selling_price}}</td>
+                                            <td>{{$product->discount_price}}</td>
                                             <td>{{$product->qty}}</td>
-                                            <td>{{$product->code}}</td>
-                                            <td>{{$product->description}}</td>
+                                            
                                            
                                             <td>
                                                 <img src="{{url('image/products/',$product->image)}}" alt="Product Image" srcset="" width="80">
