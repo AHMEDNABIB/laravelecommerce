@@ -95,7 +95,7 @@
                                             @endif
 
                                             <div class="add-cart">
-                                                <a class="add" href="shop-cart.html"><i class="fi-rs-shopping-cart mr-5"></i>Add </a>
+                                                <a class="add" href="{{ url('add-to-cart/'.$product->id) }}"><i class="fi-rs-shopping-cart mr-5"></i>Add </a>
                                             </div>
                                         </div>
                                     </div>
@@ -181,7 +181,7 @@ $catwiseProduct = App\Models\Product::where('cat_id',$category->id)->orderBy('id
                                             @endif
 
                                             <div class="add-cart">
-                                                <a class="add" href="shop-cart.html"><i class="fi-rs-shopping-cart mr-5"></i>Add </a>
+                                                <a class="add" href="{{ url('add-to-cart/'.$product->id) }}" ><i class="fi-rs-shopping-cart mr-5"></i>Add </a>
                                             </div>
                                         </div>
                                     </div>

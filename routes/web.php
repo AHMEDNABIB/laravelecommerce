@@ -9,6 +9,7 @@ use App\Http\Controllers\Products\CategoryController;
 use App\Http\Controllers\Products\PermissionController;
 
 use App\Http\Controllers\Frontend\IndexController;
+use App\Http\Controllers\Frontend\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,6 +81,14 @@ Route::group(['prefix' => 'admin'], function() {
 
 Route::get('/product/details/{id}/{slug}', [IndexController::class, 'ProductDetails']);
 Route::get('/product/category/{id}/{slug}', [IndexController::class, 'CatWiseProduct']);
+
+// Cart
+
+// Route::get('/', [CartController::class, 'index']);  
+Route::get('cart', [CartController::class, 'cart'])->name('cart');
+Route::get('add-to-cart/{id}', [CartController::class, 'addToCart'])->name('add.to.cart');
+Route::patch('update-cart', [CartController::class, 'update'])->name('update.cart');
+Route::delete('remove-from-cart', [CartController::class, 'remove'])->name('remove.from.cart');
 
 
 
